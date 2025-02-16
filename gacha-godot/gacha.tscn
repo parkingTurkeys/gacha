@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cdxgndv3ag7sp"]
+[gd_scene load_steps=51 format=3 uid="uid://cdxgndv3ag7sp"]
 
 [ext_resource type="Texture2D" uid="uid://dnwslbcxtgcho" path="res://sprites-no-bg/image1x1.png" id="1_qdvcw"]
 [ext_resource type="Texture2D" uid="uid://dq8xbljcf721" path="res://sprites-no-bg/image1x2.png" id="2_kjhu2"]
@@ -48,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://crh60k63j065" path="res://sprites-no-bg/image8x3.png" id="40_2t7vf"]
 [ext_resource type="Texture2D" uid="uid://dr56c4ardccfi" path="res://sprites-no-bg/image8x4.png" id="41_it2ky"]
 [ext_resource type="Script" path="res://gacha.gd" id="48_0wa0u"]
+[ext_resource type="Theme" uid="uid://chaa6cft3n3ef" path="res://theme.tres" id="49_lcgjs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8g1lc"]
 animations = [{
@@ -433,7 +434,6 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(571, 359)
 sprite_frames = SubResource("SpriteFrames_8g1lc")
-animation = &"44"
 script = ExtResource("48_0wa0u")
 
 [node name="Button" type="Button" parent="."]
@@ -441,6 +441,7 @@ offset_left = 931.0
 offset_top = 71.0
 offset_right = 1083.0
 offset_bottom = 221.0
+theme = ExtResource("49_lcgjs")
 text = "Pull 1x"
 
 [node name="Button2" type="Button" parent="."]
@@ -448,7 +449,36 @@ offset_left = 931.0
 offset_top = 321.0
 offset_right = 1083.0
 offset_bottom = 471.0
+theme = ExtResource("49_lcgjs")
 text = "Pull 10x"
+
+[node name="weapon-name" type="Label" parent="."]
+offset_left = 530.0
+offset_top = 493.0
+offset_right = 850.0
+offset_bottom = 529.0
+theme = ExtResource("49_lcgjs")
+text = "Gacha"
+
+[node name="stars" type="Label" parent="."]
+offset_left = 655.0
+offset_top = 415.0
+offset_right = 807.0
+offset_bottom = 484.0
+theme = ExtResource("49_lcgjs")
+theme_override_colors/font_color = Color(1, 0.783333, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "⭐⭐⭐?"
+
+[node name="to-inventory" type="Button" parent="."]
+offset_left = 933.0
+offset_top = 521.0
+offset_right = 1085.0
+offset_bottom = 581.0
+theme = ExtResource("49_lcgjs")
+text = "Inventory"
 
 [connection signal="pressed" from="Button" to="AnimatedSprite2D" method="_on_1x_button_pressed"]
 [connection signal="pressed" from="Button2" to="AnimatedSprite2D" method="_on_pull_10x_pressed"]

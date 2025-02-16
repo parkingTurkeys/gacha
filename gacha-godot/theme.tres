@@ -1,0 +1,36 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://chaa6cft3n3ef"]
+
+[sub_resource type="SystemFont" id="SystemFont_u65o1"]
+font_names = PackedStringArray("Comic Sans MS", "Serif")
+font_italic = true
+font_weight = 425
+font_stretch = 75
+msdf_size = 54
+oversampling = 2.8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y03ef"]
+bg_color = Color(0.829349, 0, 0.387944, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jq87o"]
+bg_color = Color(0.406479, 0.00142881, 0.623619, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd3bm"]
+bg_color = Color(1, 0.185812, 0.499463, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xks2a"]
+bg_color = Color(0.57408, 0.0037877, 0.941203, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_f7cn6"]
+font_names = PackedStringArray("Comic Sans MS", "Serif")
+
+[resource]
+Button/font_sizes/font_size = 30
+Button/fonts/font = SubResource("SystemFont_u65o1")
+Button/styles/hover = SubResource("StyleBoxFlat_y03ef")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_jq87o")
+Button/styles/normal = SubResource("StyleBoxFlat_hd3bm")
+Button/styles/pressed = SubResource("StyleBoxFlat_xks2a")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 25
+Label/fonts/font = SubResource("SystemFont_f7cn6")

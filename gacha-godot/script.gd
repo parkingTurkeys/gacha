@@ -2,7 +2,7 @@ extends Node
 const dmgtypes = [
 	"Psychic", "Poison", "Slashing", "Necrotic", "UwU", "Blunt", "Burning"
 ]
-const sprites = [
+var sprites = [
 	{ "name": "Rainbow Pencil", "stars": 1, "dmgtype": 6},
 	{"name": "Flower Pencil", "stars": 1, "dmgtype": 6},
 	{"name": "Fire Pencil", "stars": 1, "dmgtype": 6},
@@ -49,7 +49,8 @@ const sprites = [
 	{"name": "Blåhaj", "stars": 5, "dmgtype":5},
 	{"name": "Crown", "stars": 2, "dmgtype":6},
 
-
+ 
 ]
 
+var inventory = {}
  
