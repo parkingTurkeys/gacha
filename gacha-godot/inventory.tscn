@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://2lx5133ti8t2"]
+
+[ext_resource type="SpriteFrames" uid="uid://cdmjgvowq6wiq" path="res://weapons.tres" id="1_tf23x"]
+[ext_resource type="Script" path="res://inventory.gd" id="2_l1jlm"]
+[ext_resource type="StyleBox" uid="uid://bwqnh8ey5bvs4" path="res://transparent.tres" id="3_wkxit"]
+[ext_resource type="Theme" uid="uid://chaa6cft3n3ef" path="res://theme.tres" id="4_rgqyw"]
+
+[sub_resource type="Theme" id="Theme_vgbtj"]
+Button/font_sizes/font_size = 160
+Button/styles/disabled = ExtResource("3_wkxit")
+Button/styles/focus = ExtResource("3_wkxit")
+Button/styles/hover = ExtResource("3_wkxit")
+Button/styles/normal = ExtResource("3_wkxit")
+Button/styles/pressed = ExtResource("3_wkxit")
+
+[node name="Inventory" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(539, 314)
+sprite_frames = ExtResource("1_tf23x")
+animation = &"0"
+script = ExtResource("2_l1jlm")
+
+[node name="right-arrow" type="Button" parent="."]
+offset_left = 873.0
+offset_top = 206.0
+offset_right = 964.0
+offset_bottom = 425.0
+theme = SubResource("Theme_vgbtj")
+text = ">"
+
+[node name="left-arrow" type="Button" parent="."]
+offset_left = 110.0
+offset_top = 209.0
+offset_right = 201.0
+offset_bottom = 428.0
+theme = SubResource("Theme_vgbtj")
+text = "<"
+
+[node name="gacha" type="Button" parent="."]
+offset_left = 38.0
+offset_top = 38.0
+offset_right = 122.0
+offset_bottom = 120.0
+theme = ExtResource("4_rgqyw")
+text = "🏚️"
+
+[connection signal="pressed" from="right-arrow" to="AnimatedSprite2D" method="_on_rightarrow_pressed"]
+[connection signal="pressed" from="left-arrow" to="AnimatedSprite2D" method="_on_leftarrow_pressed"]
+[connection signal="pressed" from="gacha" to="AnimatedSprite2D" method="_on_gacha_pressed"]

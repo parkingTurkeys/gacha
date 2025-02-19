@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgi4r5nyhv4sy"]
+
+[ext_resource type="Script" path="res://home.gd" id="1_eswsb"]
+[ext_resource type="Theme" uid="uid://chaa6cft3n3ef" path="res://theme.tres" id="2_2meuf"]
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eswsb")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 295.0
+offset_right = 689.0
+offset_bottom = 552.0
+theme = ExtResource("2_2meuf")
+theme_override_font_sizes/font_size = 150
+text = "▶️"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 116.0
+offset_right = 1669.0
+offset_bottom = 257.0
+theme = ExtResource("2_2meuf")
+theme_override_font_sizes/font_size = 60
+text = "<!-- Insert amazing game name -->"
+
+[node name="inventory" type="Button" parent="."]
+offset_left = 819.0
+offset_top = 372.0
+offset_right = 1019.0
+offset_bottom = 572.0
+theme = ExtResource("2_2meuf")
+theme_override_font_sizes/font_size = 100
+text = "📦"
+
+[node name="game" type="Button" parent="."]
+offset_left = 121.0
+offset_top = 376.0
+offset_right = 321.0
+offset_bottom = 576.0
+theme = ExtResource("2_2meuf")
+theme_override_font_sizes/font_size = 100
+text = "🎮"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="inventory" to="." method="_on_inventory_pressed"]
+[connection signal="pressed" from="game" to="." method="_on_game_pressed"]

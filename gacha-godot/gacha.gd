@@ -9,9 +9,14 @@ var reusablevar
 var costume
 var index = 0
 var sprites = GlobalScript.sprites
+var inventory = GlobalScript.inventory
+var money = GlobalScript.moneys
 
-@onready var weapon_name_label = $"weapon-name"
-@onready var stars_label = $"stars"
+@onready var money_label = %money
+@onready var weapon_name_label = %"weapon-name"
+@onready var stars_label = %"stars"
+@onready var tenx_button = %"10x"
+@onready var onex_button = %"1x"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,7 +25,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	money_label.text = str(money)
+	if money < 3000:
+		tenx_button.hide()
+	else: 
+		tenx_button.show()
+	if money < 300:
+		onex_button.hide()
+	else:
+		onex_button.show()
 
 func gacha(tenx):
 	if tenx:
@@ -52,10 +65,14 @@ func pull_weapon(star_values):
 	set_animation(weapon_pulled)
 	reusablevar = sprites[int(weapon_pulled)].name
 	weapon_name_label.text = reusablevar
-	
+	if weapon_pulled in inventory:
+		inventory[weapon_pulled] = inventory[weapon_pulled] + 1
+	else: 
+		inventory[weapon_pulled] = 1
 	
 
 func rand_weapon(starsnum):
+	deletylist = []
 	if sprites.is_empty():
 		pass
 	for i in sprites:
@@ -71,15 +88,28 @@ func rand_weapon(starsnum):
 
 
 func _on_pull_10x_pressed() -> void:
-	gacha(true)
+	if money > 2999:
+		money = money - 3000
+		gacha(true)
 
 
 
 func _on_1x_button_pressed() -> void:
-	gacha(false)
+	if money > 299:
+		money = money - 300
+		gacha(false)
+	
 
 
 # got this from here: https://forum.godotengine.org/t/is-there-a-wait-function-to-godot/38759
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
+
+
+func _on_inventory_pressed() -> void:
+	get_tree().change_scene_to_file("res://inventory.tscn")
+
+
+func _on_game_pressed() -> void:
+	get_tree().change_scene_to_file("res://game.tscn")

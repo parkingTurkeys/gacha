@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmi5gi5cm2wcv"]
+
+[ext_resource type="SpriteFrames" uid="uid://cdmjgvowq6wiq" path="res://weapons.tres" id="1_w4tea"]
+[ext_resource type="Script" path="res://game.gd" id="2_iga13"]
+[ext_resource type="Theme" uid="uid://chaa6cft3n3ef" path="res://theme.tres" id="3_0nb2v"]
+[ext_resource type="Script" path="res://option_button.gd" id="4_k7bk3"]
+
+[node name="game" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(213.338, 112.75)
+scale = Vector2(0.176692, 0.176692)
+sprite_frames = ExtResource("1_w4tea")
+animation = &"6"
+script = ExtResource("2_iga13")
+
+[node name="weapon_choice" type="OptionButton" parent="."]
+unique_name_in_owner = true
+offset_left = 31.0
+offset_top = 16.0
+offset_right = 250.0
+offset_bottom = 74.0
+theme = ExtResource("3_0nb2v")
+flat = true
+script = ExtResource("4_k7bk3")
+
+[node name="game" type="Button" parent="."]
+offset_left = 92.0
+offset_top = 480.0
+offset_right = 161.0
+offset_bottom = 550.144
+theme = ExtResource("3_0nb2v")
+theme_override_font_sizes/font_size = 50
+text = "🏠"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(1, 648, 2, -8, 1152, -7, 1153, 659, 13, 648, 14, 572, 1096, 582, 1072, 55, 50, 41, 16, 567)
+
+[node name="Polygon2D" type="Polygon2D" parent="Area2D"]
+color = Color(0.927, 1, 0.27, 1)
+polygon = PackedVector2Array(1148, -2, 1150, 663, 15, 647, 18, 571, 1096, 580, 1070, 55, 48, 39, 15, 571, 1, 645, -6, -6)
+
+[connection signal="pressed" from="game" to="AnimatedSprite2D" method="_on_home_pressed"]

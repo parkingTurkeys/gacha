@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl6jxyp6gxl7r"]
+
+[ext_resource type="Script" path="res://bullet.gd" id="1_0s4lo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jua6w"]
+radius = 10.0499
+
+[node name="bullet" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+script = ExtResource("1_0s4lo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(599, 298)
+shape = SubResource("CircleShape2D_jua6w")
+
+[node name="Polygon2D" type="Polygon2D" parent="RigidBody2D"]
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(597, 288, 593, 290, 591, 292, 590, 293, 589, 294, 589, 296, 589, 299, 589, 301, 590, 303, 592, 305, 593, 306, 595, 307, 599, 308, 602, 308, 605, 306, 608, 303, 609, 300, 609, 294, 607, 292, 607, 291, 602, 288)

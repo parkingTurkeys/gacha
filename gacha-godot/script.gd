@@ -52,5 +52,6 @@ var sprites = [
  
 ]
 
-var inventory = {}
+var inventory = {"0":1}
+var moneys = 10000
  
